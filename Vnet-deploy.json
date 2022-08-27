@@ -3,20 +3,13 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
            "vnet_name":{
-            "type": "string",
-            "defaultValue": "default-name"
+            "type": "string"
         },
         "env_tag_name":{
-            "type": "string",
-            "defaultValue": "default-tag"
+            "type": "string"
         },
         "vnet_addre_pfx": {
-            "type": "array",
-            "defaultValue": ["1.1.0.0/24"]
-        },
-        "vnet_subnet_pfx": {
-            "type": "array",
-            "defaultValue": ["1.1.0.0/24"]
+            "type": "array"
         }
     },
     "functions": [],
@@ -34,15 +27,8 @@
                 "addressSpace": {
                     "addressPrefixes": "[parameters('vnet_addre_pfx')]"
                     
-                },
-                "subnets": [
-                    {
-                        "name": "sn-frontend",
-                        "properties": {
-                            "addressPrefix": "[parameters('vnet_subnet_pfx')]"
-                        }
-                    }
-                ]
+                }
+               
             }
         }
     ],
