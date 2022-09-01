@@ -1,0 +1,41 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "pip_NAME": {
+            "type": "string",
+            "metadata": {
+            }
+        },
+        "pip_dns-lable": {
+            "type": "string"  
+            },
+            "pip_allocation_method": {
+                "type": "string",
+                "allowedValues" : ["dynamic", "static"] 
+                           },
+            "env_tags_value": {
+                "type": "string"
+            }
+    },  
+    "functions": [],
+    "variables": {},
+    "resources": [
+        {
+            "name": "[parameters('pip_NAME')]",
+            "type": "Microsoft.Network/publicIPAddresses",
+            "apiVersion": "2020-11-01",
+            "location": "[resourceGroup().location]",
+            "tags": {
+                "environment": "[parameters('env_tags_value')]"
+            },
+            "properties": {
+                "publicIPAllocationMethod": "[parameters('pip_allocation_method')]",
+                "dnsSettings": {
+                    "domainNameLabel": "[parameters('pip_dns-lable')]"
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}
