@@ -14,7 +14,7 @@
                 "type": "string",
                 "allowedValues" : ["dynamic", "static"] 
                            },
-            "env_tag_value": {
+            "env_tag_name": {
                 "type": "string"
             }
     },  
@@ -27,7 +27,7 @@
             "apiVersion": "2020-11-01",
             "location": "[resourceGroup().location]",
             "tags": {
-                "environment": "[parameters('env_tag_value')]"
+                "environment": "[parameters('env_tag_name')]"
             },
             "properties": {
                 "publicIPAllocationMethod": "[parameters('pip_allocation_method')]",
