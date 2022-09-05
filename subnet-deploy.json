@@ -1,16 +1,26 @@
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": {},
+    "parameters": {
+        "subnet_name": {
+            "type": "string"
+        },
+        "subnet_addre_prf": {
+            "type": "array"
+        }
+    },
+
     "functions": [],
     "variables": {},
     "resources": [
         {
             "type": "Microsoft.Network/virtualNetworks/subnets",
             "apiVersion": "2020-11-01",
-            "name": "vnet-kfctta-mgmt-wus3-001/sn-frontend",
+            "name": "[parameters('subnet_name')]",
             "properties": {
-                "addressPrefix": "10.10.100.0/26"
+                            "addressPrefix": "[parameters('subnet_addre_prf')]"
+
+                
             }
         }
     ]
