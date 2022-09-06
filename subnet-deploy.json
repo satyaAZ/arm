@@ -7,6 +7,9 @@
         },
         "subnet_addre_prf": {
             "type": "array"
+        },
+        "vnet_name" : {
+            "type": "string"
         }
     },
 
@@ -16,7 +19,8 @@
         {
             "type": "Microsoft.Network/virtualNetworks/subnets",
             "apiVersion": "2020-11-01",
-            "name": "[parameters('subnet_name')]",
+            "location" : "resourceGroup().location",
+            "name": "[concat(parameters('vnet_name'),'/',parameters('subnet_name'))]",
             "properties": {
                             "addressPrefix": "[parameters('subnet_addre_prf')]"
 
